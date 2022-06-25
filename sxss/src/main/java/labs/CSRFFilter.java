@@ -1,4 +1,4 @@
-package we45.training.labs;
+package labs;
 
 import java.io.IOException;
 import java.util.Enumeration;

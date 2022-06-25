@@ -6,19 +6,19 @@
   <display-name>XSS</display-name>
     <servlet>
         <servlet-name>CreateUser</servlet-name>
-        <servlet-class>we45.training.labs.CreateUser</servlet-class>        
+        <servlet-class>labs.CreateUser</servlet-class>        
     </servlet>
     <servlet>
         <servlet-name>SecureCreateUser</servlet-name>
-        <servlet-class>we45.training.labs.SecureCreateUser</servlet-class>        
+        <servlet-class>labs.SecureCreateUser</servlet-class>        
     </servlet>    
     <servlet>
         <servlet-name>XSS</servlet-name>
-        <servlet-class>we45.training.labs.XSS</servlet-class>        
+        <servlet-class>labs.XSS</servlet-class>        
     </servlet>
     <servlet>
         <servlet-name>Secure</servlet-name>
-        <servlet-class>we45.training.labs.Secure</servlet-class>        
+        <servlet-class>labs.Secure</servlet-class>        
     </servlet>    
     <servlet-mapping>
         <servlet-name>CreateUser</servlet-name>
@@ -59,7 +59,7 @@
     </filter-mapping> 
     <filter>
         <filter-name>CSRFFilter</filter-name>
-        <filter-class>we45.training.labs.CSRFFilter</filter-class>  
+        <filter-class>labs.CSRFFilter</filter-class>  
     </filter>
     <filter-mapping>
         <filter-name>CSRFFilter</filter-name>

@@ -1,4 +1,4 @@
-package we45.training.labs;
+package labs;
 
 public class User{
 	String fname;
