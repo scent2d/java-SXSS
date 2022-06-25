@@ -1,0 +1,71 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>  
+  <display-name>XSS</display-name>
+    <servlet>
+        <servlet-name>CreateUser</servlet-name>
+        <servlet-class>we45.training.labs.CreateUser</servlet-class>        
+    </servlet>
+    <servlet>
+        <servlet-name>SecureCreateUser</servlet-name>
+        <servlet-class>we45.training.labs.SecureCreateUser</servlet-class>        
+    </servlet>    
+    <servlet>
+        <servlet-name>XSS</servlet-name>
+        <servlet-class>we45.training.labs.XSS</servlet-class>        
+    </servlet>
+    <servlet>
+        <servlet-name>Secure</servlet-name>
+        <servlet-class>we45.training.labs.Secure</servlet-class>        
+    </servlet>    
+    <servlet-mapping>
+        <servlet-name>CreateUser</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SecureCreateUser</servlet-name>
+        <url-pattern>/secureCreate</url-pattern>
+    </servlet-mapping>    
+    <servlet-mapping>
+        <servlet-name>XSS</servlet-name>
+        <url-pattern>/insecure</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Secure</servlet-name>
+        <url-pattern>/secure</url-pattern>
+    </servlet-mapping>   
+    <filter>
+        <filter-name>httpHeaderSecurity</filter-name>
+        <filter-class>org.apache.catalina.filters.HttpHeaderSecurityFilter</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+          <param-name>antiClickJackingEnabled</param-name>
+          <param-value>true</param-value>
+        </init-param>
+        <init-param>
+          <param-name>antiClickJackingOption</param-name>
+          <param-value>DENY</param-value>
+        </init-param>
+        <init-param>
+          <param-name>xssProtectionEnabled</param-name>
+          <param-value>false</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>httpHeaderSecurity</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping> 
+    <filter>
+        <filter-name>CSRFFilter</filter-name>
+        <filter-class>we45.training.labs.CSRFFilter</filter-class>  
+    </filter>
+    <filter-mapping>
+        <filter-name>CSRFFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <welcome-file-list>
+        <welcome-file>insecure</welcome-file>
+    </welcome-file-list>
+</web-app>
